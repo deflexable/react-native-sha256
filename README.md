@@ -1,27 +1,15 @@
 # react-native-sha256
+
 sha256 natively for react-native
 
 Speed is king, especially for javascript-driven applications with react-native!
 This library provides native sha256-hashes for a string on both iOS and Android
-natively. 
+natively.
 
 # Installation
+
 ```
 yarn add react-native-sha256
-react-native link
-```
-
-## Adding with CocoaPods
-
-Add the RNSha256 pod to your list of application pods in your Podfile, using the path from the Podfile to the installed module:
-
-```
-pod 'RNSha256', :path => '../node_modules/react-native-sha256'
-```
-
-Install pods as usual:
-```
-pod install
 ```
 
 # Usage
@@ -34,19 +22,14 @@ import { sha256, sha256Bytes } from 'react-native-sha256';
 
 Build a sha256-hash:
 
-```javascript
-sha256("Test").then( hash => {
-    console.log(hash);
-})
+```typescript
+const sha256Hash = sha256('Test');
 ```
 
-```javascript
+```typescript
 const message = new Uint8Array(8);
 const bytes = Array.from(message);
-
-sha256Bytes(bytes).then( hash => {
-    console.log(hash);
-})
+const sha256Hash = sha256Bytes(bytes);
 ```
 
 # File-Hashes
