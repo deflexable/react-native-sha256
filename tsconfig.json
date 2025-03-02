@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
+    "baseUrl": "./",
+    "rootDir": "./src",
     "paths": {
       "react-native-sha256": ["./src/index"]
     },
@@ -11,6 +12,7 @@
     "jsx": "react-jsx",
     "lib": ["ESNext"],
     "module": "ESNext",
+    "outDir": "./lib",
     "moduleResolution": "Bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
