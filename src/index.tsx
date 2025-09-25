@@ -1,4 +1,4 @@
-import Sha256 from './NativeSha256';
+import Sha256 from './NativeRNSha256';
 
 export function sha256(data: string) {
   try {

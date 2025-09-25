@@ -8,4 +8,4 @@ export interface Spec extends TurboModule {
   sha256Bytes: (input: any[]) => string;
 }
 
-export default TurboModuleRegistry.getEnforcing<Spec>('Sha256');
+export default TurboModuleRegistry.getEnforcing<Spec>('RNSha256');

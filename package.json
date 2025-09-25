@@ -1,11 +1,17 @@
 {
   "name": "react-native-sha256",
   "version": "2.0.0",
-  "description": "sha256 natively for react-native",
-  "source": "./src/index.tsx",
-  "main": "./lib/commonjs/index.js",
-  "module": "./lib/module/index.js",
-  "types": "./lib/typescript/index.d.ts",
+  "description": "3",
+  "main": "./lib/module/index.js",
+  "types": "./lib/typescript/src/index.d.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.tsx",
+      "types": "./lib/typescript/src/index.d.ts",
+      "default": "./lib/module/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "src",
     "lib",
@@ -20,12 +26,9 @@
     "!android/gradlew",
     "!android/gradlew.bat",
     "!android/local.properties",
-    "!**/*.d.ts.map",
-    "!**/*.js.map",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
-    "!*.test.js",
     "!**/.*"
   ],
   "scripts": {
@@ -34,7 +37,7 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it --only-version"
   },
   "keywords": [
     "react-component",
@@ -56,51 +59,49 @@
     "url": "https://github.com/itinance/react-native-sha256/issues"
   },
   "homepage": "https://github.com/itinance/react-native-sha256#readme",
-  "devDependencies": {
-    "@react-native-community/cli": "15.0.1",
-    "@react-native/eslint-config": "^0.73.1",
-    "@types/react": "^18.2.44",
-    "del-cli": "^5.1.0",
-    "eslint": "^8.51.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3",
-    "react": "19.0.0",
-    "react-native": "0.78.0",
-    "react-native-builder-bob": "^0.36.0",
-    "typescript": "^5.2.2"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
-  "resolutions": {
-    "@types/react": "^18.2.44"
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/compat": "^1.4.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.36.0",
+    "@react-native-community/cli": "20.0.2",
+    "@react-native/babel-preset": "0.81.4",
+    "@react-native/eslint-config": "^0.81.4",
+    "@types/react": "^19.1.13",
+    "del-cli": "^7.0.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "react": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-builder-bob": "^0.40.13",
+    "release-it": "^19.0.5",
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native",
-      "prettier"
-    ],
-    "rules": {
-      "react/react-in-jsx-scope": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
+  "workspaces": [
+    "example"
+  ],
+  "packageManager": "yarn@3.6.1",
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
     }
   },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
   "prettier": {
     "quoteProps": "consistent",
     "singleQuote": true,
@@ -112,12 +113,11 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      "codegen",
       [
-        "commonjs"
-      ],
-      [
-        "module"
+        "module",
+        {
+          "esm": true
+        }
       ],
       [
         "typescript",
@@ -131,13 +131,14 @@
     "name": "RNSha256Spec",
     "type": "modules",
     "jsSrcsDir": "src",
-    "outputDir": {
-      "ios": "ios/generated",
-      "android": "android/generated"
-    },
     "android": {
       "javaPackageName": "com.sha256"
     },
-    "includesGeneratedCode": true
+    "schemaOutputDir": "build/generated/source/codegen"
+  },
+  "create-react-native-library": {
+    "languages": "kotlin-objc",
+    "type": "turbo-module",
+    "version": "0.54.3"
   }
 }

@@ -8,8 +8,8 @@ import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-@ReactModule(name = Sha256Module.NAME)
-class Sha256Module(reactContext: ReactApplicationContext) : NativeSha256Spec(reactContext) {
+@ReactModule(name = RNSha256Module.NAME)
+class RNSha256Module(reactContext: ReactApplicationContext) : NativeRNSha256Spec(reactContext) {
 
   override fun getName(): String {
     return NAME
@@ -73,6 +73,6 @@ class Sha256Module(reactContext: ReactApplicationContext) : NativeSha256Spec(rea
   }
 
   companion object {
-    const val NAME = "Sha256"
+    const val NAME = "RNSha256"
   }
 }

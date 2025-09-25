@@ -36,3 +36,9 @@ const sha256Hash = sha256Bytes(bytes);
 
 If you need to calculate SHA-256 hashes from a file, use this method of react-native-fs:
 (https://github.com/itinance/react-native-fs#hashfilepath-string-algorithm-string-promisestring)
+
+## Contributing
+
+- [Development workflow](CONTRIBUTING.md#development-workflow)
+- [Sending a pull request](CONTRIBUTING.md#sending-a-pull-request)
+- [Code of conduct](CODE_OF_CONDUCT.md)

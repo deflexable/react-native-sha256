@@ -7,10 +7,10 @@ import com.facebook.react.module.model.ReactModuleInfo
 import com.facebook.react.module.model.ReactModuleInfoProvider
 import java.util.HashMap
 
-class Sha256Package : BaseReactPackage() {
+class RNSha256Package : BaseReactPackage() {
   override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
-    return if (name == Sha256Module.NAME) {
-      Sha256Module(reactContext)
+    return if (name == RNSha256Module.NAME) {
+      RNSha256Module(reactContext)
     } else {
       null
     }
@@ -19,9 +19,9 @@ class Sha256Package : BaseReactPackage() {
   override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
     return ReactModuleInfoProvider {
       val moduleInfos: MutableMap<String, ReactModuleInfo> = HashMap()
-      moduleInfos[Sha256Module.NAME] = ReactModuleInfo(
-        Sha256Module.NAME,
-        Sha256Module.NAME,
+      moduleInfos[RNSha256Module.NAME] = ReactModuleInfo(
+        RNSha256Module.NAME,
+        RNSha256Module.NAME,
         false,  // canOverrideExistingModule
         false,  // needsEagerInit
         false,  // isCxxModule
